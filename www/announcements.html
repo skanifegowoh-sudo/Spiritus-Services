@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Announcements — Catholic Diocese of Enugu</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img src="assets/logo.png" alt="Catholic Diocese of Enugu crest" class="nav__brand-mark"/>
+      <div class="nav__brand-text">
+        <div class="nav__brand-name">Diocese of Enugu</div>
+        <div class="nav__brand-sub">Spiritus Sanctus Portal</div>
+      </div>
+    </a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Parishes</a></li>
+        <li><a href="schools.html">Schools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="health.html">Health</a></li>
+        <li><a href="faith-formation.html">Faith &amp; Formation</a></li>
+        <li><a href="choice-flame.html">Choice Flame</a></li>
+        <li><a href="announcements.html" class="active">Notices</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="services.html" class="nav__cta">Book Now</a></li>
+      </ul>
+    </nav>
+    <button class="nav__burger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="nav__mobile">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Parishes</a>
+    <a href="schools.html">Schools</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="health.html">Health</a>
+    <a href="faith-formation.html">Faith &amp; Formation</a>
+    <a href="choice-flame.html">Choice Flame</a>
+    <a href="announcements.html">Notices</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<section class="page-hero page-hero--teal">
+  <div class="page-hero__inner">
+    <div class="page-hero__crumbs"><a href="index.html">Home</a> · Announcements</div>
+    <h1>Announcements &amp;<br>Official Notices</h1>
+    <p class="page-hero__sub">Ordinations, priestly transfers, retreats, pilgrimages, and official notices from the Bishop's office.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:24px">
+      <div>
+        <span class="eyebrow">Latest Notices</span>
+        <h2 class="mt-8">From the Chancery.</h2>
+      </div>
+      <div class="directory-filters">
+        <button class="directory-filter directory-filter--active" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('directory-filter--active'));this.classList.add('directory-filter--active')">All</button>
+        <button class="directory-filter" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('directory-filter--active'));this.classList.add('directory-filter--active')">Ordinations</button>
+        <button class="directory-filter" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('directory-filter--active'));this.classList.add('directory-filter--active')">Transfers</button>
+        <button class="directory-filter" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('directory-filter--active'));this.classList.add('directory-filter--active')">Retreats</button>
+        <button class="directory-filter" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('directory-filter--active'));this.classList.add('directory-filter--active')">Notices</button>
+      </div>
+    </div>
+
+    <div class="ann-list">
+      <div class="ann ann--urgent">
+        <div class="ann__date">
+          <div class="ann__date-day">22</div>
+          <div class="ann__date-month">Jul 2025</div>
+        </div>
+        <div class="ann__body">
+          <span class="ann__badge">Urgent</span>
+          <h3 class="ann__title">Pastoral Letter: 2025 Diocesan Theme</h3>
+          <p class="ann__text">The Bishop has released his 2025 pastoral letter on the diocesan theme. All parishes are requested to incorporate the theme into liturgical and parish activities for the year. Copies are available at the Chancery.</p>
+        </div>
+      </div>
+      <div class="ann ann--ord">
+        <div class="ann__date">
+          <div class="ann__date-day">14</div>
+          <div class="ann__date-month">Jul 2025</div>
+        </div>
+        <div class="ann__body">
+          <span class="ann__badge">Ordination</span>
+          <h3 class="ann__title">Priestly Ordination Announced</h3>
+          <p class="ann__text">The Bishop has announced the ordination of new priests to the Order of Presbyter for the Diocese. Date and venue to be communicated. All faithful are invited to join in prayer and thanksgiving.</p>
+        </div>
+      </div>
+      <div class="ann ann--trans">
+        <div class="ann__date">
+          <div class="ann__date-day">02</div>
+          <div class="ann__date-month">Jul 2025</div>
+        </div>
+        <div class="ann__body">
+          <span class="ann__badge">Transfer</span>
+          <h3 class="ann__title">2025 Priestly Transfers Published</h3>
+          <p class="ann__text">The annual priestly transfers have been published by the Chancery. All affected priests are requested to take up their new appointments by the end of the month. Parishes are to formally welcome their new parish priests.</p>
+        </div>
+      </div>
+      <div class="ann ann--retreat">
+        <div class="ann__date">
+          <div class="ann__date-day">28</div>
+          <div class="ann__date-month">Jun 2025</div>
+        </div>
+        <div class="ann__body">
+          <span class="ann__badge">Retreat</span>
+          <h3 class="ann__title">Diocesan Priests' Retreat — August</h3>
+          <p class="ann__text">The annual diocesan priests' retreat will hold in August. All diocesan and religious priests working in the Diocese are expected to attend. Registration is at the Catholic Secretariat.</p>
+        </div>
+      </div>
+      <div class="ann ann--notice">
+        <div class="ann__date">
+          <div class="ann__date-day">15</div>
+          <div class="ann__date-month">Jun 2025</div>
+        </div>
+        <div class="ann__body">
+          <span class="ann__badge">Notice</span>
+          <h3 class="ann__title">Weekly Consecration to the Immaculate Heart of Mary</h3>
+          <p class="ann__text">The Diocese continues the practice of weekly consecration to the Immaculate Heart of Mary. All parishes are reminded to include the consecration prayer in their weekly Sunday schedule.</p>
+        </div>
+      </div>
+      <div class="ann ann--retreat">
+        <div class="ann__date">
+          <div class="ann__date-day">10</div>
+          <div class="ann__date-month">Jun 2025</div>
+        </div>
+        <div class="ann__body">
+          <span class="ann__badge">Pilgrimage</span>
+          <h3 class="ann__title">Diocesan Pilgrimage to Aokpe</h3>
+          <p class="ann__text">A diocesan pilgrimage to the Marian shrine at Aokpe has been announced. Pilgrims should register at their parishes. Buses will depart from the Cathedral grounds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div>
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Catholic Diocese of Enugu crest" class="footer__brand-mark"/>
+        <div>
+          <div class="footer__brand-name">Catholic Diocese of Enugu</div>
+          <div class="footer__brand-sub">Spiritus Sanctus Portal</div>
+        </div>
+      </div>
+      <p class="footer__desc">A vibrant digital home for the Catholic faithful of Enugu State. Serving 1.4 million Catholics across 248 parishes in six deaneries since 1962.</p>
+    </div>
+    <div>
+      <div class="footer__heading">Explore</div>
+      <ul class="footer__links">
+        <li><a href="about.html">About the Diocese</a></li>
+        <li><a href="directory.html">Parish Directory</a></li>
+        <li><a href="schools.html">Catholic Schools</a></li>
+        <li><a href="about.html#leadership">Our Bishops</a></li>
+        <li><a href="choice-flame.html">The Choice Flame</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Services</div>
+      <ul class="footer__links">
+        <li><a href="services.html">Spiritus Sanctus Works</a></li>
+        <li><a href="health.html">Diocesan Hospitals</a></li>
+        <li><a href="faith-formation.html">Faith &amp; Formation</a></li>
+        <li><a href="announcements.html">Announcements</a></li>
+        <li><a href="contact.html">Chancery Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Contact</div>
+      <div class="footer__contact-line">📍 Holy Ghost Cathedral/Secretariat</div>
+      <div class="footer__contact-line">📍 P. O. Box 302, Enugu</div>
+      <div class="footer__contact-line">📞 <a href="tel:+2348033375672">+234 803 337 5672</a></div>
+      <div class="footer__contact-line">✉️ <a href="mailto:cathsen1@yahoo.com">cathsen1@yahoo.com</a></div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div>© 2025 Catholic Diocese of Enugu. All rights reserved.</div>
+    <div class="footer__tagline">"One Faith. Many Hands. A Living Church."</div>
+  </div>
+</footer>
+
+</body>
+</html>

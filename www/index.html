@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="The official portal of the Catholic Diocese of Enugu — 248 parishes across 6 deaneries, the Choice Flame newspaper, Spiritus Sanctus Works, diocesan health services, and the parish directory."/>
+  <meta property="og:title" content="Catholic Diocese of Enugu — Spiritus Sanctus Portal"/>
+  <meta property="og:description" content="A vibrant digital home for 1.4 million faithful across Enugu State. Find a parish, read the Choice Flame, request a service."/>
+  <title>Catholic Diocese of Enugu — One Faith, Many Hands</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img src="assets/logo.png" alt="Catholic Diocese of Enugu crest" class="nav__brand-mark"/>
+      <div class="nav__brand-text">
+        <div class="nav__brand-name">Diocese of Enugu</div>
+        <div class="nav__brand-sub">Spiritus Sanctus Portal</div>
+      </div>
+    </a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="directory.html">Parishes</a></li>
+        <li><a href="schools.html">Schools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="health.html">Health</a></li>
+        <li><a href="faith-formation.html">Faith &amp; Formation</a></li>
+        <li><a href="choice-flame.html">Choice Flame</a></li>
+        <li><a href="announcements.html">Notices</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="directory.html" class="nav__cta">Find a Parish</a></li>
+      </ul>
+    </nav>
+    <button class="nav__burger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="nav__mobile">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Parishes</a>
+    <a href="schools.html">Schools</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="health.html">Health</a>
+    <a href="faith-formation.html">Faith &amp; Formation</a>
+    <a href="choice-flame.html">Choice Flame</a>
+    <a href="announcements.html">Notices</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="hero__inner">
+    <div>
+      <span class="hero__seal-row">
+        <span class="hero__seal-dot"></span>
+        Est. November 12, 1962
+      </span>
+      <h1 class="hero__title">
+        One Faith.<br>
+        Many Hands.<br>
+        <em>A Living Church.</em>
+      </h1>
+      <p class="hero__sub">
+        The Catholic Diocese of Enugu serves over <strong>1.4 million faithful</strong> across 248 parishes in six deaneries — from worship and healing to skilled service and the written word.
+      </p>
+      <div class="hero__actions">
+        <a href="services.html" class="btn btn--primary btn--lg">Book a Service →</a>
+        <a href="directory.html" class="btn btn--ghost btn--lg">Find a Parish</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <div class="hero__stat-num">6</div>
+          <div class="hero__stat-label">Deaneries</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">248</div>
+          <div class="hero__stat-label">Parishes</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">531</div>
+          <div class="hero__stat-label">Diocesan Priests</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">63</div>
+          <div class="hero__stat-label">Years of Faith</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__visual-card hero__visual-card--main">
+        <svg viewBox="0 0 120 120" fill="none" aria-label="Diocese of Enugu seal">
+          <circle cx="60" cy="60" r="56" stroke="white" stroke-width="2.5" fill="none" opacity=".4"/>
+          <circle cx="60" cy="60" r="48" stroke="white" stroke-width="1" fill="none" opacity=".25"/>
+          <path d="M60 32C54 32 47 37 44 44C41 38 34 36 29 38C33 43 33 50 37 54C34 57 31 62 33 67C40 64 45 66 49 70C51 74 56 76 60 74C64 76 69 74 71 70C75 66 80 64 87 67C89 62 86 57 83 54C87 50 87 43 91 38C86 36 79 38 76 44C73 37 66 32 60 32Z" fill="white" opacity=".95"/>
+          <line x1="48" y1="78" x2="68" y2="98" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="71" cy="101" r="6" stroke="white" stroke-width="3" fill="none"/>
+          <polygon points="44,80 38,86 44,92 50,86" fill="white"/>
+          <path id="a1" d="M 17,60 A 43,43 0 0,1 103,60" fill="none"/>
+          <text font-size="7" font-family="Cinzel,serif" fill="white" letter-spacing="2.5" font-weight="700"><textPath href="#a1" startOffset="14%">CATHOLIC DIOCESE OF ENUGU</textPath></text>
+          <path id="a2" d="M 22,68 A 38,38 0 0,0 98,68" fill="none"/>
+          <text font-size="5.5" font-family="Cinzel,serif" fill="white" letter-spacing="1.5" opacity=".75"><textPath href="#a2" startOffset="20%">EST. 1962 ✦ NIGERIA</textPath></text>
+        </svg>
+      </div>
+      <div class="hero__visual-card hero__visual-card--badge-1">
+        248<br>Parishes
+      </div>
+      <div class="hero__visual-card hero__visual-card--badge-2">
+        <span class="dot"></span>
+        Chancery is open
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MARQUEE ============== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">Diocese-Verified Technicians</span>
+    <span class="marquee__item">Transparent Pricing</span>
+    <span class="marquee__item">24/7 Emergency Call-Out</span>
+    <span class="marquee__item">Service Warranty on All Jobs</span>
+    <span class="marquee__item">4 Diocesan Hospitals</span>
+    <span class="marquee__item">220+ Active Parishes</span>
+    <span class="marquee__item">531 Diocesan Priests</span>
+    <span class="marquee__item">Diocese-Verified Technicians</span>
+    <span class="marquee__item">Transparent Pricing</span>
+    <span class="marquee__item">24/7 Emergency Call-Out</span>
+    <span class="marquee__item">Service Warranty on All Jobs</span>
+    <span class="marquee__item">4 Diocesan Hospitals</span>
+    <span class="marquee__item">220+ Active Parishes</span>
+    <span class="marquee__item">531 Diocesan Priests</span>
+  </div>
+</div>
+
+<!-- ============== QUICK ACCESS ============== -->
+<section class="section qa">
+  <div class="container">
+    <div class="qa__head">
+      <div>
+        <span class="eyebrow">What We Offer</span>
+        <h2 class="mt-8">Every door of the Diocese,<br>in one place.</h2>
+      </div>
+      <p class="lead">From finding a parish to booking a skilled tradesman — the Portal is the Diocese's digital home, open to all.</p>
+    </div>
+    <div class="qa__grid">
+      <a href="directory.html" class="qa-card qa-card--cobalt">
+        <div class="qa-card__icon">⛪</div>
+        <div class="qa-card__title">Find a Parish</div>
+        <div class="qa-card__desc">Locate any of 248 parishes across 6 deaneries — Mass times, parish priests, and contact details.</div>
+        <span class="qa-card__cta">Browse directory →</span>
+        <div class="qa-card__bg">01</div>
+      </a>
+      <a href="services.html" class="qa-card qa-card--coral">
+        <div class="qa-card__icon">🔧</div>
+        <div class="qa-card__title">Request a Tradesman</div>
+        <div class="qa-card__desc">Plumbing, electrical, carpentry, masonry, painting, CCTV and more — diocese-verified skilled hands.</div>
+        <span class="qa-card__cta">Book now →</span>
+        <div class="qa-card__bg">02</div>
+      </a>
+      <a href="health.html" class="qa-card qa-card--jade">
+        <div class="qa-card__icon">🏥</div>
+        <div class="qa-card__title">Health Services</div>
+        <div class="qa-card__desc">Four diocesan hospitals, eleven maternity centres, and six care homes. Book appointments online.</div>
+        <span class="qa-card__cta">View hospitals →</span>
+        <div class="qa-card__bg">03</div>
+      </a>
+      <a href="choice-flame.html" class="qa-card qa-card--sun">
+        <div class="qa-card__icon">📰</div>
+        <div class="qa-card__title">The Choice Flame</div>
+        <div class="qa-card__desc">News, faith reflections, editorials, features and events — the Diocese's own voice in print and online.</div>
+        <span class="qa-card__cta">Read the Flame →</span>
+        <div class="qa-card__bg">04</div>
+      </a>
+      <a href="announcements.html" class="qa-card qa-card--violet">
+        <div class="qa-card__icon">📢</div>
+        <div class="qa-card__title">Announcements</div>
+        <div class="qa-card__desc">Ordinations, priestly transfers, retreats, pilgrimages and official notices from the Bishop's office.</div>
+        <span class="qa-card__cta">Latest notices →</span>
+        <div class="qa-card__bg">05</div>
+      </a>
+      <a href="contact.html" class="qa-card qa-card--teal">
+        <div class="qa-card__icon">✉️</div>
+        <div class="qa-card__title">Contact the Chancery</div>
+        <div class="qa-card__desc">Reach the Bishop's office, Catholic Secretariat, emergency lines, and social channels.</div>
+        <span class="qa-card__cta">Get in touch →</span>
+        <div class="qa-card__bg">06</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ABOUT ============== -->
+<section class="section about">
+  <div class="container">
+    <div class="about__inner">
+      <div class="about__media">
+        <div class="about__media-content">
+          <div class="about__media-cross">✝</div>
+          <div class="about__media-text">"Behold I am among you as one who serves."</div>
+          <div class="about__media-cite">— Luke 22:27</div>
+        </div>
+        <div class="about__pill about__pill--tl">
+          <span class="about__pill-icon">📅</span>
+          <div>Est. 1962</div>
+        </div>
+        <div class="about__pill about__pill--br">
+          <span class="about__pill-icon">🌍</span>
+          <div>2,738 km² territory</div>
+        </div>
+      </div>
+      <div class="about__content">
+        <span class="eyebrow">Our Diocese</span>
+        <h2 class="mt-8">A Church at the service of the people.</h2>
+        <p class="lead mt-16">The Catholic Diocese of Enugu was raised as an independent See on <strong style="color:var(--cobalt)">November 12, 1962</strong>, carved out of the Onitsha Archdiocese. From 17 original parishes it has grown into one of the most vibrant dioceses in Nigeria.</p>
+        <p class="mt-16">Under the pastoral leadership of <strong style="color:var(--violet)">Most Rev. Callistus Valentine Chukwuma Onaga</strong>, the fifth Bishop of Enugu, the Diocese continues to grow in faith, service, and infrastructure.</p>
+        <div class="about__features">
+          <div class="about__feature about__feature--cobalt">
+            <div class="about__feature-icon">✦</div>
+            <div>
+              <div class="about__feature-name">Faith Formation</div>
+              <div class="about__feature-desc">410 minor seminarians, catechetical schools across every deanery</div>
+            </div>
+          </div>
+          <div class="about__feature about__feature--jade">
+            <div class="about__feature-icon">♥</div>
+            <div>
+              <div class="about__feature-name">Health & Healing</div>
+              <div class="about__feature-desc">4 hospitals, 11 maternity centres, 6 care homes</div>
+            </div>
+          </div>
+          <div class="about__feature about__feature--coral">
+            <div class="about__feature-icon">★</div>
+            <div>
+              <div class="about__feature-name">Skilled Works</div>
+              <div class="about__feature-desc">Spiritus Sanctus Works — diocese-verified tradesmen</div>
+            </div>
+          </div>
+          <div class="about__feature about__feature--sun">
+            <div class="about__feature-icon">♪</div>
+            <div>
+              <div class="about__feature-name">The Choice Flame</div>
+              <div class="about__feature-desc">Diocesan newspaper, the official voice of the See</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="about.html" class="btn btn--cobalt">About the Diocese →</a>
+          <a href="directory.html" class="btn btn--ghost">Clergy & Parishes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DEANERIES ============== -->
+<section class="section deaneries">
+  <div class="deaneries__pattern"></div>
+  <div class="container">
+    <div class="deaneries__head">
+      <span class="eyebrow">Six Deaneries · 248 Parishes</span>
+      <h2 class="mt-8">Across Enugu State, in every corner.</h2>
+      <p class="lead">The Diocese is divided into six deaneries — each a network of parishes led by a Dean and serving thousands of Catholic faithful in its locality.</p>
+    </div>
+    <div class="deaneries__grid">
+      <a href="directory.html#agbani" class="deanery-card deanery-card--cobalt">
+        <div class="deanery-card__count">33</div>
+        <div class="deanery-card__name">Agbani Deanery</div>
+        <div class="deanery-card__sub">Parishes + Chaplaincies</div>
+        <div class="deanery-card__desc">Centred on Agbani and surrounding communities in Nkanu West LGA.</div>
+        <span class="deanery-card__link">Browse parishes →</span>
+      </a>
+      <a href="directory.html#aguobu-owa" class="deanery-card deanery-card--coral">
+        <div class="deanery-card__count">39</div>
+        <div class="deanery-card__name">Aguobu Owa Deanery</div>
+        <div class="deanery-card__sub">Parishes</div>
+        <div class="deanery-card__desc">The largest deanery by parish count, serving Ezeagu and parts of Udi.</div>
+        <span class="deanery-card__link">Browse parishes →</span>
+      </a>
+      <a href="directory.html#emene" class="deanery-card deanery-card--jade">
+        <div class="deanery-card__count">25</div>
+        <div class="deanery-card__name">Emene Deanery</div>
+        <div class="deanery-card__sub">Parishes + Chaplaincies</div>
+        <div class="deanery-card__desc">Encompassing the industrial Emene axis and airport corridor.</div>
+        <span class="deanery-card__link">Browse parishes →</span>
+      </a>
+      <a href="directory.html#enugu" class="deanery-card deanery-card--sun">
+        <div class="deanery-card__count">57</div>
+        <div class="deanery-card__name">Enugu Deanery</div>
+        <div class="deanery-card__sub">Parishes + Chaplaincies</div>
+        <div class="deanery-card__desc">The metropolitan deanery, home of the Holy Ghost Cathedral.</div>
+        <span class="deanery-card__link">Browse parishes →</span>
+      </a>
+      <a href="directory.html#nkwo-nike" class="deanery-card deanery-card--violet">
+        <div class="deanery-card__count">30</div>
+        <div class="deanery-card__name">Nkwo Nike Deanery</div>
+        <div class="deanery-card__sub">Parishes + Chaplaincies</div>
+        <div class="deanery-card__desc">Serving the eastern suburbs of Enugu and Abakpa Nike.</div>
+        <span class="deanery-card__link">Browse parishes →</span>
+      </a>
+      <a href="directory.html#udi" class="deanery-card deanery-card--teal">
+        <div class="deanery-card__count">36</div>
+        <div class="deanery-card__name">Udi Deanery</div>
+        <div class="deanery-card__sub">Parishes</div>
+        <div class="deanery-card__desc">The historical deanery, residence of the Auxiliary Bishop at St. Mary's, Udi.</div>
+        <span class="deanery-card__link">Browse parishes →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SERVICES ============== -->
+<section class="section svc">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:24px">
+      <div>
+        <span class="eyebrow">Spiritus Sanctus Works</span>
+        <h2 class="mt-8">Skilled trades,<br>diocese-verified.</h2>
+      </div>
+      <a href="services.html" class="btn btn--cobalt">All services →</a>
+    </div>
+    <p class="lead">Every technician is registered with the Diocese and held to the highest standards of the Church's ethical charter.</p>
+    <div class="svc__grid">
+      <div class="svc-card">
+        <div class="svc-card__icon">🚿</div>
+        <div class="svc-card__name">Pipe Repairs</div>
+        <div class="svc-card__status">Available now</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card__icon">🔍</div>
+        <div class="svc-card__name">Leak Detection</div>
+        <div class="svc-card__status">Available now</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card__icon">🛁</div>
+        <div class="svc-card__name">Bathroom Installation</div>
+        <div class="svc-card__status">Available now</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card__icon">🪣</div>
+        <div class="svc-card__name">Water Tank Installation</div>
+        <div class="svc-card__status">Available now</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card__icon">💧</div>
+        <div class="svc-card__name">Borehole Plumbing</div>
+        <div class="svc-card__status">Available now</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card__icon">🕳️</div>
+        <div class="svc-card__name">Drainage Maintenance</div>
+        <div class="svc-card__status">Available now</div>
+      </div>
+      <div class="svc-card svc-card--coming">
+        <div class="svc-card__icon">⚡</div>
+        <div class="svc-card__name">Electrical Works</div>
+        <div class="svc-card__status">Coming soon</div>
+      </div>
+      <div class="svc-card svc-card--coming">
+        <div class="svc-card__icon">🪵</div>
+        <div class="svc-card__name">Carpentry</div>
+        <div class="svc-card__status">Coming soon</div>
+      </div>
+      <div class="svc-card svc-card--coming">
+        <div class="svc-card__icon">🎨</div>
+        <div class="svc-card__name">Painting</div>
+        <div class="svc-card__status">Coming soon</div>
+      </div>
+      <div class="svc-card svc-card--coming">
+        <div class="svc-card__icon">🏗️</div>
+        <div class="svc-card__name">Tiling & Masonry</div>
+        <div class="svc-card__status">Coming soon</div>
+      </div>
+      <div class="svc-card svc-card--coming">
+        <div class="svc-card__icon">📡</div>
+        <div class="svc-card__name">CCTV & Networking</div>
+        <div class="svc-card__status">Coming soon</div>
+      </div>
+      <div class="svc-card svc-card--coming">
+        <div class="svc-card__icon">☀️</div>
+        <div class="svc-card__name">Solar Installation</div>
+        <div class="svc-card__status">Coming soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HEALTH BAND ============== -->
+<section class="health-band">
+  <div class="container">
+    <div class="health-band__inner">
+      <div>
+        <span class="eyebrow">Diocesan Health Services</span>
+        <h2 class="mt-8">Healing the body,<br>caring for the soul.</h2>
+        <p class="lead mt-16">The Diocese operates <strong>4 hospitals</strong>, <strong>11 maternity centres</strong>, and <strong>6 care homes</strong> across Enugu State — combining quality medical care with the Church's healing mission. Pastoral chaplaincy is available at every facility.</p>
+        <div class="health-stats">
+          <div class="health-stat">
+            <div class="health-stat__num">4</div>
+            <div class="health-stat__label">Hospitals</div>
+          </div>
+          <div class="health-stat">
+            <div class="health-stat__num">11</div>
+            <div class="health-stat__label">Maternity Centres</div>
+          </div>
+          <div class="health-stat">
+            <div class="health-stat__num">6</div>
+            <div class="health-stat__label">Care Homes</div>
+          </div>
+          <div class="health-stat">
+            <div class="health-stat__num">✝</div>
+            <div class="health-stat__label">Pastoral Care</div>
+          </div>
+        </div>
+        <div class="mt-24">
+          <a href="health.html" class="btn btn--sun btn--lg">View Health Services →</a>
+        </div>
+      </div>
+      <div class="health-grid">
+        <div class="health-card">
+          <div class="health-card__icon">🩺</div>
+          <div class="health-card__name">General Medicine</div>
+          <div class="health-card__desc">Outpatient & general care</div>
+        </div>
+        <div class="health-card">
+          <div class="health-card__icon">👶</div>
+          <div class="health-card__name">Paediatrics</div>
+          <div class="health-card__desc">Children's care</div>
+        </div>
+        <div class="health-card">
+          <div class="health-card__icon">🤱</div>
+          <div class="health-card__name">Maternity</div>
+          <div class="health-card__desc">Ante- & post-natal</div>
+        </div>
+        <div class="health-card">
+          <div class="health-card__icon">🦷</div>
+          <div class="health-card__name">Dental & Eye</div>
+          <div class="health-card__desc">Specialist clinics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== LEADERSHIP ============== -->
+<section class="section leadership">
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto 32px">
+      <span class="eyebrow">Our Shepherds</span>
+      <h2 class="mt-8">Shepherds of the flock.</h2>
+      <p class="lead mt-16" style="margin:16px auto 0">Under episcopal leadership renewed each generation, the Diocese continues the work of the Gospel in Enugu State.</p>
+    </div>
+    <div class="leadership__grid">
+      <div class="leader-card leader-card--bishop">
+        <div class="leader-card__cross">✝</div>
+        <div class="leader-card__role">Bishop of Enugu</div>
+        <div class="leader-card__name">Most Rev. Callistus Valentine<br>Chukwuma Onaga</div>
+        <div class="leader-card__detail">📅 Installed May 2, 2009</div>
+        <div class="leader-card__detail">📍 Holy Ghost Cathedral, Ogui, Enugu</div>
+        <div class="leader-card__detail">✉ cvconaga@yahoo.com</div>
+        <div class="leader-card__motto">"Behold I am among you as one who serves." — Luke 22:27</div>
+      </div>
+      <div class="leader-card leader-card--aux">
+        <div class="leader-card__cross">✝</div>
+        <div class="leader-card__role">Auxiliary Bishop</div>
+        <div class="leader-card__name">Most Rev. Ernest<br>Anezichukwu Obodo</div>
+        <div class="leader-card__detail">📅 Episcopal Ordination August 31, 2018</div>
+        <div class="leader-card__detail">📍 St. Mary's Catholic Church, Udi</div>
+        <div class="leader-card__detail">✉ bspeaobodo@gmail.com</div>
+        <div class="leader-card__motto">"To Jesus through Mary."</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="about.html" class="btn btn--ghost">See full leadership & history →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CHOICE FLAME ============== -->
+<section class="section news">
+  <div class="container">
+    <div class="news__head">
+      <div>
+        <span class="eyebrow">The Choice Flame</span>
+        <h2 class="mt-8">Latest from the Diocese.</h2>
+      </div>
+      <a href="choice-flame.html" class="btn btn--cobalt">All articles →</a>
+    </div>
+    <div class="news__grid" id="homeNewsGrid"></div>
+  </div>
+</section>
+
+
+<!-- ============== VATICAN NEWS LIVE WIDGET ============== -->
+<section class="section" style="background:var(--cream)" id="vatican-news">
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto 32px">
+      <span class="eyebrow">Live from Rome</span>
+      <h2 class="mt-8">Vatican News</h2>
+      <p class="lead mt-16" style="margin:16px auto 0">The latest videos and headlines about Pope Leo XIV and the Holy See — delivered live, direct from Vatican News.</p>
+    </div>
+    <div style="max-width:900px;margin:0 auto;min-height:400px;height:auto">
+      <vaticannews-widget lang="en" fontSize="16" carouselVideoAuto="true" carouselVideoTime="medium"></vaticannews-widget>
+      <script src="https://www.vaticannews.va/widget.js"></script>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CTA STRIP ============== -->
+<section class="cta-strip">
+  <div class="container">
+    <div class="cta-strip__inner">
+      <h2>The Chancery is open to all.</h2>
+      <p>Whether you seek a sacrament, a skilled tradesman, a medical appointment or simply a conversation — the Bishop's office and our parish priests are ready to welcome you.</p>
+      <div class="cta-strip__actions">
+        <a href="contact.html" class="btn btn--sun btn--lg">Contact the Diocese →</a>
+        <a href="directory.html" class="btn btn--ghost btn--lg">Find a Priest Near You</a>
+      </div>
+      <div style="margin-top:28px;font-size:14px;opacity:0.85">
+        📞 Chancery: <a href="tel:+2348033375672" style="color:white;font-weight:700;text-decoration:underline">+234 803 337 5672</a>
+        &nbsp;·&nbsp;
+        ✉️ <a href="mailto:cathsen1@yahoo.com" style="color:white;font-weight:700;text-decoration:underline">cathsen1@yahoo.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="footer__top">
+    <div>
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Catholic Diocese of Enugu crest" class="footer__brand-mark"/>
+        <div>
+          <div class="footer__brand-name">Catholic Diocese of Enugu</div>
+          <div class="footer__brand-sub">Spiritus Sanctus Portal</div>
+        </div>
+      </div>
+      <p class="footer__desc">A vibrant digital home for the Catholic faithful of Enugu State. Serving 1.4 million Catholics across 248 parishes in six deaneries since 1962.</p>
+      <div class="footer__social" style="margin-top:18px">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__heading">Explore</div>
+      <ul class="footer__links">
+        <li><a href="about.html">About the Diocese</a></li>
+        <li><a href="directory.html">Parish Directory</a></li>
+        <li><a href="schools.html">Catholic Schools</a></li>
+        <li><a href="about.html#leadership">Our Bishops</a></li>
+        <li><a href="about.html#history">Diocesan History</a></li>
+        <li><a href="choice-flame.html">The Choice Flame</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Services</div>
+      <ul class="footer__links">
+        <li><a href="services.html">Spiritus Sanctus Works</a></li>
+        <li><a href="health.html">Diocesan Hospitals</a></li>
+        <li><a href="faith-formation.html">Faith &amp; Formation</a></li>
+        <li><a href="announcements.html">Announcements</a></li>
+        <li><a href="services.html#emergency">Emergency Call-Out</a></li>
+        <li><a href="contact.html">Chancery Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Contact</div>
+      <div class="footer__contact-line">📍 Holy Ghost Cathedral/Secretariat</div>
+      <div class="footer__contact-line">📍 P. O. Box 302, Enugu</div>
+      <div class="footer__contact-line">📞 <a href="tel:+2348033375672">+234 803 337 5672</a></div>
+      <div class="footer__contact-line">✉️ <a href="mailto:cathsen1@yahoo.com">cathsen1@yahoo.com</a></div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div>© 2025 Catholic Diocese of Enugu. All rights reserved.</div>
+    <div class="footer__tagline">"One Faith. Many Hands. A Living Church."</div>
+  </div>
+</footer>
+
+<script src="js/choice-flame-data.js"></script>
+<script src="js/home-news.js"></script>
+</body>
+</html>

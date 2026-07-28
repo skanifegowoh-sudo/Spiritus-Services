@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Every Catholic school of the Diocese of Enugu — higher institutions, secondary schools, seminaries, vocational centres, and nursery/primary schools, from the 2025 Diocesan Directory."/>
+  <title>Schools — Catholic Diocese of Enugu</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img src="assets/logo.png" alt="Catholic Diocese of Enugu crest" class="nav__brand-mark"/>
+      <div class="nav__brand-text">
+        <div class="nav__brand-name">Diocese of Enugu</div>
+        <div class="nav__brand-sub">Spiritus Sanctus Portal</div>
+      </div>
+    </a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Parishes</a></li>
+        <li><a href="schools.html" class="active">Schools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="health.html">Health</a></li>
+        <li><a href="faith-formation.html">Faith &amp; Formation</a></li>
+        <li><a href="choice-flame.html">Choice Flame</a></li>
+        <li><a href="announcements.html">Notices</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="services.html" class="nav__cta">Book a Service</a></li>
+      </ul>
+    </nav>
+    <button class="nav__burger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="nav__mobile">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Parishes</a>
+    <a href="schools.html">Schools</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="health.html">Health</a>
+    <a href="faith-formation.html">Faith &amp; Formation</a>
+    <a href="choice-flame.html">Choice Flame</a>
+    <a href="announcements.html">Notices</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<section class="page-hero page-hero--jade">
+  <div class="page-hero__inner">
+    <div class="page-hero__crumbs"><a href="index.html">Home</a> · Schools</div>
+    <h1>Catholic Schools<br>of the Diocese</h1>
+    <p class="page-hero__sub">From nursery to university — the Diocese of Enugu forms minds and character across 153 educational institutions in the 2025 Diocesan Directory.</p>
+    <div class="page-hero__stats">
+      <span class="page-hero__stat">🎓 9 Higher Institutions</span>
+      <span class="page-hero__stat">🏫 56 Secondary Schools</span>
+      <span class="page-hero__stat">🧒 83 Nursery/Primary Schools</span>
+    </div>
+  </div>
+</section>
+
+<div class="directory-toolbar">
+  <div class="container">
+    <div class="directory-toolbar__inner">
+      <div class="directory-search">
+        <span class="directory-search__icon">🔍</span>
+        <input type="search" id="schoolSearch" placeholder="Search by school name, town, or head/proprietor…"/>
+      </div>
+      <div class="directory-filters" id="categoryFilters">
+        <button class="directory-filter directory-filter--active" data-category="all">All Schools</button>
+        <button class="directory-filter" data-category="higher">Higher Institutions</button>
+        <button class="directory-filter" data-category="secondary">Secondary Schools</button>
+        <button class="directory-filter" data-category="seminaries">Seminaries</button>
+        <button class="directory-filter" data-category="vocational">Vocational Centres</button>
+        <button class="directory-filter" data-category="nursery">Nursery &amp; Primary</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" id="schoolsContent">
+    <div style="text-align:center;padding:60px 20px">
+      <div style="font-size:48px">🏫</div>
+      <p style="color:#8A85A0;margin-top:16px">Loading schools directory…</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <hr class="divider"/>
+    <div style="text-align:center;max-width:680px;margin:0 auto">
+      <span class="eyebrow">Catholic Education · 2025</span>
+      <h2 class="mt-8">Educating the whole person.</h2>
+      <p class="lead mt-16" style="margin:16px auto 0">The Enugu Diocesan Catholic Education Secretariat oversees every mission school in the Diocese, forming students in faith, character, and academic excellence from nursery through university.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-tile stat-tile--cobalt">
+        <div class="stat-tile__num">9</div>
+        <div class="stat-tile__label">Higher Institutions</div>
+      </div>
+      <div class="stat-tile stat-tile--coral">
+        <div class="stat-tile__num">56</div>
+        <div class="stat-tile__label">Secondary Schools</div>
+      </div>
+      <div class="stat-tile stat-tile--jade">
+        <div class="stat-tile__num">83</div>
+        <div class="stat-tile__label">Nursery/Primary Schools</div>
+      </div>
+      <div class="stat-tile stat-tile--sun">
+        <div class="stat-tile__num">3</div>
+        <div class="stat-tile__label">Vocational Centres</div>
+      </div>
+    </div>
+
+    <div class="clergy-note">
+      <div class="clergy-note__icon">📋</div>
+      <div>
+        <strong>For accuracy,</strong> school listings reflect the 2025 Diocesan Directory as printed. Heads of schools, contacts, and proprietorship change over time — parish priests and school administrators may submit updates through the Enugu Diocesan Catholic Education Secretariat or the Chancery Office.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip" style="padding:64px 0">
+  <div class="container">
+    <div class="cta-strip__inner">
+      <h2 style="font-size:clamp(24px,3.5vw,38px)">Submit or update school details.</h2>
+      <p>Heads of schools and parish priests may submit corrections or new listings for publication.</p>
+      <div class="cta-strip__actions">
+        <a href="contact.html" class="btn btn--sun btn--lg">Contact the Chancery</a>
+        <a href="mailto:cathsen1@yahoo.com" class="btn btn--ghost btn--lg">Email: cathsen1@yahoo.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div>
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Catholic Diocese of Enugu crest" class="footer__brand-mark"/>
+        <div>
+          <div class="footer__brand-name">Catholic Diocese of Enugu</div>
+          <div class="footer__brand-sub">Spiritus Sanctus Portal</div>
+        </div>
+      </div>
+      <p class="footer__desc">A vibrant digital home for the Catholic faithful of Enugu State. Serving 1.4 million Catholics across 248 parishes in six deaneries since 1962.</p>
+    </div>
+    <div>
+      <div class="footer__heading">Explore</div>
+      <ul class="footer__links">
+        <li><a href="about.html">About the Diocese</a></li>
+        <li><a href="directory.html">Parish Directory</a></li>
+        <li><a href="schools.html">Catholic Schools</a></li>
+        <li><a href="choice-flame.html">The Choice Flame</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Services</div>
+      <ul class="footer__links">
+        <li><a href="services.html">Spiritus Sanctus Works</a></li>
+        <li><a href="health.html">Diocesan Hospitals</a></li>
+        <li><a href="faith-formation.html">Faith &amp; Formation</a></li>
+        <li><a href="announcements.html">Announcements</a></li>
+        <li><a href="contact.html">Chancery Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__heading">Contact</div>
+      <div class="footer__contact-line">📍 Holy Ghost Cathedral/Secretariat</div>
+      <div class="footer__contact-line">📍 P. O. Box 302, Enugu</div>
+      <div class="footer__contact-line">📞 <a href="tel:+2348033375672">+234 803 337 5672</a></div>
+      <div class="footer__contact-line">✉️ <a href="mailto:cathsen1@yahoo.com">cathsen1@yahoo.com</a></div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div>© 2025 Catholic Diocese of Enugu. All rights reserved.</div>
+    <div class="footer__tagline">"One Faith. Many Hands. A Living Church."</div>
+  </div>
+</footer>
+
+<script src="js/schools-data.js"></script>
+<script src="js/schools.js"></script>
+</body>
+</html>

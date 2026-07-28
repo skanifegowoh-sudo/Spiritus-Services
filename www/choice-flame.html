@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="The Choice Flame — live news, faith reflections, and diocesan updates from the official newspaper of the Catholic Diocese of Enugu."/>
+  <title>The Choice Flame — Catholic Diocese of Enugu</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <style>
+    /* ---- Choice Flame specific ---- */
+    .flame-hero {
+      background: linear-gradient(135deg, #1A0800 0%, #3A1200 50%, #1B2A4A 100%);
+      padding: 56px 24px 48px; text-align: center; color: #F7F1E3; position: relative; overflow: hidden;
+    }
+    .flame-hero::before {
+      content: '🔥'; position: absolute; font-size: 200px; opacity: .04;
+      top: -20px; right: -20px; pointer-events: none;
+    }
+    .flame-logo {
+      display: inline-flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(201,151,10,.3);
+      border-radius: 8px; padding: 14px 22px; margin-bottom: 22px;
+    }
+    .flame-logo__icon { font-size: 32px; }
+    .flame-logo__text { text-align: left; }
+    .flame-logo__name { font-family: 'Playfair Display', 'Cinzel', serif; font-size: 22px; font-weight: 700; color: #C9970A; line-height: 1.1; }
+    .flame-logo__tagline { font-size: 11px; color: #B0BED0; letter-spacing: .08em; text-transform: uppercase; margin-top: 2px; }
+
+    /* Category tabs */
+    .cat-tabs { background: #fff; border-bottom: 2px solid #EFE7D0; position: sticky; top: 60px; z-index: 90; }
+    .cat-tabs__inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+    .cat-tabs__inner::-webkit-scrollbar { display: none; }
+    .cat-tab {
+      padding: 14px 18px; border: none; background: none; font-size: 13px; font-weight: 600;
+      color: #6B5E4A; cursor: pointer; white-space: nowrap; font-family: inherit;
+      border-bottom: 3px solid transparent; margin-bottom: -2px; transition: .15s;
+      text-decoration: none; display: inline-block;
+    }
+    .cat-tab:hover { color: #0D1B2A; }
+    .cat-tab.active { color: #C9970A; border-bottom-color: #C9970A; }
+
+    /* Live articles grid */
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .article-card {
+      background: #fff; border: 1px solid #DDD3BE; border-radius: 8px; overflow: hidden;
+      text-decoration: none; color: inherit; display: flex; flex-direction: column;
+      transition: box-shadow .18s, transform .15s;
+    }
+    .article-card:hover { box-shadow: 0 8px 28px rgba(13,27,42,.13); transform: translateY(-3px); }
+    .article-card__img {
+      height: 180px; background: linear-gradient(135deg, #0D1B2A 0%, #3A1200 100%);
+      display: flex; align-items: center; justify-content: center; font-size: 48px;
+      position: relative; overflow: hidden;
+    }
+    .article-card__img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .article-card__body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+    .article-card__cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #C9970A; margin-bottom: 6px; }
+    .article-card__title { font-family: 'Playfair Display', serif; font-size: 16px; color: #0D1B2A; line-height: 1.35; margin-bottom: 8px; font-weight: 600; flex: 1; }
+    .article-card__desc { font-size: 13px; color: #6B5E4A; line-height: 1.6; margin-bottom: 12px; }
+    .article-card__meta { font-size: 11.5px; color: #9A9482; display: flex; justify-content: space-between; align-items: center; }
+    .article-card__read { font-size: 12.5px; font-weight: 700; color: #C9970A; }
+
+    /* Featured article */
+    .article-featured {
+      background: #fff; border: 1px solid #DDD3BE; border-radius: 10px; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 28px;
+      text-decoration: none; color: inherit; transition: box-shadow .18s;
+    }
+    .article-featured:hover { box-shadow: 0 8px 32px rgba(13,27,42,.15); }
+    .article-featured__img { min-height: 260px; background: linear-gradient(135deg, #1A0800, #3A1200); display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .article-featured__img img { width: 100%; height: 100%; object-fit: cover; }
+    .article-featured__body { padding: 28px; display: flex; flex-direction: column; justify-content: center; }
+    .article-featured__badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; background: #C9970A; color: #0D1B2A; padding: 3px 10px; border-radius: 3px; display: inline-block; margin-bottom: 12px; }
+    .article-featured__title { font-family: 'Playfair Display', serif; font-size: 22px; color: #0D1B2A; line-height: 1.25; margin-bottom: 10px; font-weight: 700; }
+    .article-featured__desc { font-size: 14px; color: #6B5E4A; line-height: 1.7; margin-bottom: 16px; }
+
+    /* Loading / error states */
+    .loading-state { text-align: center; padding: 60px 20px; color: #6B5E4A; }
+    .loading-spinner { width: 36px; height: 36px; border: 3px solid #DDD3BE; border-top-color: #C9970A; border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Facebook section */
+    .fb-section { background: #1877F2; border-radius: 10px; padding: 28px; color: #fff; margin-top: 40px; }
+    .fb-section h3 { font-family: 'Playfair Display', serif; color: #fff; margin-bottom: 8px; }
+    .fb-btn { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #1877F2; font-weight: 700; padding: 11px 20px; border-radius: 6px; text-decoration: none; font-size: 14px; transition: .15s; margin-top: 14px; }
+    .fb-btn:hover { background: #E8F0FF; }
+
+    /* Sidebar */
+    .content-layout { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+    .sidebar-card { background: #fff; border: 1px solid #DDD3BE; border-radius: 8px; padding: 20px; margin-bottom: 18px; }
+    .sidebar-card__title { font-family: 'Playfair Display', serif; font-size: 16px; color: #0D1B2A; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #C9970A; }
+    .sidebar-link { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #EFE7D0; text-decoration: none; color: inherit; }
+    .sidebar-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-link__dot { color: #C9970A; font-size: 18px; flex-shrink: 0; line-height: 1.2; }
+    .sidebar-link__title { font-size: 13px; font-weight: 600; color: #0D1B2A; line-height: 1.4; }
+    .sidebar-link:hover .sidebar-link__title { color: #C9970A; }
+
+    @media (max-width: 768px) {
+      .content-layout { grid-template-columns: 1fr; }
+      .article-featured { grid-template-columns: 1fr; }
+      .article-featured__img { min-height: 180px; }
+    }
+    @media (max-width: 500px) {
+      .articles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+</script>
+<div id="nav-placeholder"></div>
+
+<!-- Hero -->
+<div class="flame-hero">
+  <div class="flame-logo">
+    <div class="flame-logo__icon">🔥</div>
+    <div class="flame-logo__text">
+      <div class="flame-logo__name">The Choice Flame</div>
+      <div class="flame-logo__tagline">Dispelling Darkness · Catholic Diocese of Enugu</div>
+    </div>
+  </div>
+  <h1 style="color:#F7F1E3;font-size:clamp(24px,4vw,40px);margin-bottom:10px">Live News &amp; Faith</h1>
+  <p style="color:#B0BED0;max-width:520px;margin:0 auto 22px;font-size:15px">Dedicated to smart, truth-centred and objective reporting on the Church and society at large. The official publication of the Catholic Diocese of Enugu.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <a href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener" class="btn btn--gold">📘 Follow on Facebook</a>
+    <a href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener" class="btn btn--outline-light">
+      See Latest Posts
+    </a>
+  </div>
+</div>
+
+<!-- Category tabs -->
+<div class="cat-tabs">
+  <div class="cat-tabs__inner">
+    <a class="cat-tab active" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">All News</a>
+    <a class="cat-tab" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">Diocesan News</a>
+    <a class="cat-tab" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">Vatican</a>
+    <a class="cat-tab" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">World</a>
+    <a class="cat-tab" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">Homilies</a>
+    <a class="cat-tab" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">Features</a>
+    <a class="cat-tab" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">Education</a>
+    <a class="cat-tab" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">Health</a>
+  </div>
+</div>
+
+<section class="section section--ivory">
+  <div class="container">
+    <div class="content-layout">
+      <!-- Main content -->
+      <div>
+        <!-- Live feed notice -->
+        <div style="margin-bottom:14px">
+          <span style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#C9970A">🔴 Live Facebook Feed</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+            <h2 style="font-family:'Playfair Display',serif;font-size:22px;color:#0D1B2A;margin-top:5px">The Choice Flame Newspaper</h2>
+            <a href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"
+              style="font-size:13px;font-weight:700;color:#C9970A;text-decoration:none">
+              Open on Facebook →
+            </a>
+          </div>
+        </div>
+
+        <!-- Official Facebook Page Plugin — same principle as the Vatican News widget above -->
+        <div class="fb-page"
+          data-href="https://www.facebook.com/thechoiceflame/"
+          data-tabs="timeline"
+          data-width=""
+          data-height="600"
+          data-small-header="false"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/thechoiceflame/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener">The Choice Flame Newspaper</a>
+          </blockquote>
+        </div>
+
+        <!-- Recent highlights -->
+        <div style="margin:28px 0 16px">
+          <span style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#C9970A">Recent Highlights</span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:22px;color:#0D1B2A;margin-top:5px">From the Facebook page</h2>
+        </div>
+
+        <div class="articles-grid" id="highlightsGrid"></div>
+
+        <!-- Facebook explainer section -->
+        <div class="fb-section">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+            <span style="font-size:28px">📘</span>
+            <div>
+              <h3 style="margin:0">The Choice Flame on Facebook</h3>
+              <p style="font-size:13px;color:rgba(255,255,255,.7);margin:0">7,000+ followers · Posts daily · Breaking Catholic news and diocesan updates</p>
+            </div>
+          </div>
+          <p style="font-size:14px;color:rgba(255,255,255,.8);margin-bottom:0">This is where The Choice Flame actually posts first — daily Gospel readings, diocesan news, photos, and videos. The feed above updates automatically; for the full experience (comments, reels, sharing), open the page directly.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener" class="fb-btn">
+              📘 Open Facebook Page
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <!-- About -->
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">About the Choice Flame</div>
+          <p style="font-size:13px;color:#6B5E4A;line-height:1.65;margin-bottom:12px">The Choice Flame is dedicated to smart, truth-centred and objective reporting on the Church and society. It is the official publication of the Catholic Diocese of Enugu, dispelling the darkness of ignorance with the light of truth.</p>
+          <div style="font-size:13px;color:#4A3F30;margin-bottom:5px">📞 <a href="tel:08180364135" style="color:#2C3E6B;font-weight:600">0818 036 4135</a></div>
+          <div style="font-size:13px;color:#4A3F30;margin-bottom:5px">✉️ <a href="mailto:dchoiceflame@yahoo.com" style="color:#2C3E6B;font-weight:600">dchoiceflame@yahoo.com</a></div>
+          <div style="font-size:13px;color:#4A3F30">📘 <a href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener" style="color:#2C3E6B;font-weight:600">facebook.com/thechoiceflame</a></div>
+        </div>
+
+        <!-- Categories -->
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Browse by Category</div>
+          <a class="sidebar-link" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"><span class="sidebar-link__dot">⛪</span><span class="sidebar-link__title">Diocesan News</span></a>
+          <a class="sidebar-link" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"><span class="sidebar-link__dot">🇻🇦</span><span class="sidebar-link__title">Vatican</span></a>
+          <a class="sidebar-link" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"><span class="sidebar-link__dot">🌍</span><span class="sidebar-link__title">World News</span></a>
+          <a class="sidebar-link" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"><span class="sidebar-link__dot">✝️</span><span class="sidebar-link__title">Homilies</span></a>
+          <a class="sidebar-link" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"><span class="sidebar-link__dot">📰</span><span class="sidebar-link__title">Features</span></a>
+          <a class="sidebar-link" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"><span class="sidebar-link__dot">🏥</span><span class="sidebar-link__title">Health</span></a>
+          <a class="sidebar-link" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"><span class="sidebar-link__dot">🎓</span><span class="sidebar-link__title">Education</span></a>
+          <a class="sidebar-link" href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"><span class="sidebar-link__dot">➕</span><span class="sidebar-link__title">View all on Facebook →</span></a>
+        </div>
+
+        <!-- Subscribe -->
+        <div class="sidebar-card" style="background:linear-gradient(135deg,#1A0800,#3A1200);border-color:#5A3010">
+          <div class="sidebar-card__title" style="color:#C9970A;border-bottom-color:rgba(201,151,10,.3)">Subscribe to Updates</div>
+          <p style="font-size:13px;color:#B0A090;margin-bottom:14px">Receive the latest Choice Flame articles by email.</p>
+          <form onsubmit="this.innerHTML='<p style=color:#C9970A;font-weight:700;font-size:14px>✓ Subscribed!</p>';return false;">
+            <input type="email" placeholder="your@email.com" required
+              style="width:100%;padding:10px 12px;border:1px solid #5A3010;border-radius:5px;font-size:13.5px;background:rgba(255,255,255,.06);color:#F7F1E3;font-family:inherit;margin-bottom:10px"/>
+            <button type="submit"
+              style="width:100%;padding:10px;background:#C9970A;color:#1A0800;border:none;border-radius:5px;font-weight:700;font-size:13.5px;cursor:pointer;font-family:inherit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+        <!-- Follow socials -->
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Follow The Choice Flame</div>
+          <a href="https://www.facebook.com/thechoiceflame/" target="_blank" rel="noopener"
+            style="display:flex;align-items:center;gap:10px;padding:10px;background:#1877F2;color:#fff;border-radius:6px;text-decoration:none;font-weight:700;font-size:13.5px">
+            📘 Facebook Page
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/choice-flame-data.js"></script>
+<script src="js/choice-flame.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
