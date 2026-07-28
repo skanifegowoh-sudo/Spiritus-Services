@@ -8,29 +8,47 @@
 </head>
 <body>
 
-<header class="nav"><div class="nav__inner"><a href="index.html" class="nav__brand"><img src="assets/logo.png" alt="Catholic Diocese of Enugu crest" class="nav__brand-mark"><div class="nav__brand-text"><div class="nav__brand-name">Diocese of Enugu</div><div class="nav__brand-sub">Spiritus Sanctus Portal</div></div></a><nav><ul class="nav__links"><li><a href="index.html">Home</a></li>
-<li><a href="directory.html">Parishes</a></li>
-<li><a href="schools.html">Schools</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="health.html" class="active">Health</a></li>
-<li><a href="faith-formation.html">Faith &amp; Formation</a></li>
-<li><a href="choice-flame.html">Choice Flame</a></li>
-<li><a href="announcements.html">Notices</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul></nav><button class="nav__burger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div><div id="mobileMenu" class="nav__mobile"><a href="index.html" onclick="closeMenu()">Home</a>
-<a href="directory.html" onclick="closeMenu()">Parishes</a>
-<a href="schools.html" onclick="closeMenu()">Schools</a>
-<a href="about.html" onclick="closeMenu()">About</a>
-<a href="services.html" onclick="closeMenu()">Services</a>
-<a href="health.html" onclick="closeMenu()">Health</a>
-<a href="faith-formation.html" onclick="closeMenu()">Faith &amp; Formation</a>
-<a href="choice-flame.html" onclick="closeMenu()">Choice Flame</a>
-<a href="announcements.html" onclick="closeMenu()">Notices</a>
-<a href="contact.html" onclick="closeMenu()">Contact</a>
-</div></header>
-
-
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img src="assets/logo.png" alt="Catholic Diocese of Enugu crest" class="nav__brand-mark"/>
+      <div class="nav__brand-text">
+        <div class="nav__brand-name">Diocese of Enugu</div>
+        <div class="nav__brand-sub">Spiritus Sanctus Portal</div>
+      </div>
+    </a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Parishes</a></li>
+        <li><a href="schools.html">Schools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="health.html" class="active">Health</a></li>
+        <li><a href="faith-formation.html">Faith &amp; Formation</a></li>
+        <li><a href="choice-flame.html">Choice Flame</a></li>
+        <li><a href="announcements.html">Notices</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="services.html" class="nav__cta">Book Now</a></li>
+      </ul>
+    </nav>
+    <button class="nav__burger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="nav__mobile">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Parishes</a>
+    <a href="schools.html">Schools</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="health.html">Health</a>
+    <a href="faith-formation.html">Faith &amp; Formation</a>
+    <a href="choice-flame.html">Choice Flame</a>
+    <a href="announcements.html">Notices</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
 
 <section class="page-hero page-hero--jade">
   <div class="page-hero__inner">
