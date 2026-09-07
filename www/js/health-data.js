@@ -34,6 +34,6 @@ window.HEALTH_CENTRES = [
 // Fallback contact used whenever a centre has no direct phone/email listed.
 window.HEALTH_GENERAL_CONTACT = {
   label: "Diocesan Health Office / Chancery",
-  phone: "+2348033375672",
+  phone: "+2348115119318",
   email: "cathsen1@yahoo.com"
 };
