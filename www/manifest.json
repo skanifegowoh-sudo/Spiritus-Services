@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "Spiritus Sanctus — Catholic Diocese of Enugu",
+  "short_name": "Spiritus",
+  "description": "The Catholic Diocese of Enugu portal: parishes, Mass times, Posting 2026 clergy search, diocesan services, Domus hospitality, health, schools, Choice Flame and Spiritus Assistant.",
+  "start_url": "/?source=installed-app",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFCF5",
+  "theme_color": "#7A2331",
+  "orientation": "portrait-primary",
+  "lang": "en-NG",
+  "categories": ["lifestyle", "education", "news"],
+  "icons": [
+    {"src": "/assets/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "/assets/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "/assets/app-icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Find a Parish", "short_name": "Parishes", "url": "/directory.html?source=app-shortcut", "icons": [{"src": "/assets/app-icon-192.png", "sizes": "192x192"}]},
+    {"name": "2026 Clergy Search", "short_name": "2026 Postings", "url": "/clergy-postings.html?source=app-shortcut", "icons": [{"src": "/assets/app-icon-192.png", "sizes": "192x192"}]},
+    {"name": "Domus Guest House & Eatery", "short_name": "Domus", "url": "/services.html#hospitality", "icons": [{"src": "/assets/app-icon-192.png", "sizes": "192x192"}]},
+    {"name": "The Choice Flame", "short_name": "Choice Flame", "url": "/choice-flame.html?source=app-shortcut", "icons": [{"src": "/assets/app-icon-192.png", "sizes": "192x192"}]}
+  ]
+}
