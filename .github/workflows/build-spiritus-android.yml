@@ -1,0 +1,73 @@
+name: Build Spiritus Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "android/**"
+      - "www/**"
+      - "capacitor.config.json"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/build-spiritus-android.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-debug-apk:
+    name: Build installable test APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+          cache: "gradle"
+
+      - name: Install Capacitor dependencies
+        run: npm ci
+
+      - name: Sync website with native Android project
+        run: npx cap sync android
+
+      - name: Verify app does not claim normal website links
+        run: |
+          if grep -R -n 'android.intent.action.VIEW\|android.intent.category.BROWSABLE' android/app/src/main/AndroidManifest.xml; then
+            echo "Unexpected website/deep-link intent filter found."
+            exit 1
+          fi
+          echo "No website-link hijacking intent filter present."
+
+      - name: Build debug APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Verify APK
+        run: |
+          test -f android/app/build/outputs/apk/debug/app-debug.apk
+          ls -lh android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Upload Spiritus APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Spiritus-Sanctus-Android-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
