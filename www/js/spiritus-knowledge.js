@@ -2,7 +2,7 @@
   'use strict';
 
   window.SPIRITUS_KNOWLEDGE = {
-    version: '4.1.0',
+    version: '4.2.0',
     updated: '2026-09-08',
 
     contacts: {
@@ -115,6 +115,13 @@
     ],
 
     faq: [
+      {
+        id: 'posting_directory',
+        category: 'Diocese',
+        question: 'How do I search the 2026 clergy and posting directory?',
+        triggers: ['2026 postings','2026 posting','clergy posting','clergy directory','priest posting','who serves where','where is father posted','where is fr posted'],
+        answer: 'Open the 2026 Clergy & Posting Search to look up parish priests, vicars, deanery deans, diocesan offices, institutions, chaplaincies and apostolic associations from Posting 2026.'
+      },
       {
         id: 'find_parish',
         category: 'Parishes',

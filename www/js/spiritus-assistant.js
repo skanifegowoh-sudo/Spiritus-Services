@@ -384,6 +384,7 @@
       actions.push(linkAction('📍 Find on Google Maps', K.contacts.domus.mapsSearch));
       actions.push(linkAction('🏨 Hospitality', 'services.html#hospitality'));
     }
+    if (faq.id === 'posting_directory') actions.push(linkAction('📘 2026 Postings', 'clergy-postings.html'));
     if (['retreat','pilgrimage','prayer','counselling','vocational'].includes(faq.id)) actions.push(linkAction('🕊 Faith & Formation', 'faith-formation.html'));
     if (faq.id === 'choice_flame') actions.push(linkAction('📰 Choice Flame', 'choice-flame.html'));
     if (faq.id === 'notices') actions.push(linkAction('📢 Current Notices', 'announcements.html'));
@@ -805,16 +806,12 @@
         <div class="spiritus-trust">I use the diocesan portal's structured data and FAQ knowledge. I do not choose a result at random or invent official Church information.</div>
         <div class="spiritus-messages" aria-live="polite"></div>
         <div class="spiritus-quick" aria-label="Quick questions">
-          <button type="button" data-q="Parish help">⛪ Parishes</button>
+          <button type="button" data-q="Parish help">⛪ Find Parish</button>
           <button type="button" data-q="Mass times">🕊 Mass Times</button>
-          <button type="button" data-q="Directions to a parish">📍 Directions</button>
-          <button type="button" data-q="Sacrament help">✝ Sacraments</button>
-          <button type="button" data-q="Chancery information">🏛 Chancery</button>
-          <button type="button" data-q="School help">🎓 Schools</button>
-          <button type="button" data-q="Health facilities">🏥 Health</button>
-          <button type="button" data-q="Faith and Formation">🙏 Faith</button>
+          <button type="button" data-q="2026 postings">📘 2026 Postings</button>
+          <button type="button" data-q="Domus Sanctorum Guest House and Eatery">🏨 Domus</button>
           <button type="button" data-q="Spiritus Sanctus Works services">🔧 Services</button>
-          <button type="button" data-q="Choice Flame and notices">📰 News</button>
+          <button type="button" data-q="Help">☰ More Help</button>
         </div>
         <form class="spiritus-compose">
           <button class="spiritus-mic" type="button" aria-label="Speak your question" title="Speak">🎤</button>
@@ -846,6 +843,8 @@
       }
     }
 
+    window.openSpiritusAssistant = () => setOpen(true);
+
     launcher.addEventListener('click', () => setOpen(!panel.classList.contains('is-open')));
     close.addEventListener('click', () => setOpen(false));
 
@@ -875,7 +874,7 @@
 
     initRecognition();
 
-    addMessage('Welcome to the Catholic Diocese of Enugu. I can help with parishes, Mass times, directions, sacraments, the Chancery, schools, health services, faith centres, Spiritus Sanctus Works, Choice Flame and notices. Choose a topic below or type your question.', 'assistant', [
+    addMessage('Welcome to the Catholic Diocese of Enugu. I can help with parishes, Mass times, sacraments, Posting 2026 assignments, diocesan offices, Domus hospitality, schools, health services, faith centres, Spiritus Sanctus Works, Choice Flame and notices. Choose a topic below or type your question.', 'assistant', [
       promptAction('☰ Help Menu', 'Help')
     ]);
   }
