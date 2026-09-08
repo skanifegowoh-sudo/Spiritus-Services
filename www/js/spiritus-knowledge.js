@@ -2,7 +2,7 @@
   'use strict';
 
   window.SPIRITUS_KNOWLEDGE = {
-    version: '4.0.0',
+    version: '4.1.0',
     updated: '2026-09-08',
 
     contacts: {
@@ -20,6 +20,15 @@
         phoneDisplay: '+234 903 466 6870',
         phone: '+2349034666870',
         hours: '24 hours, 7 days'
+      },
+      domus: {
+        name: 'Domus Sanctorum Guest House & Eatery',
+        administrator: 'Fr. Kenneth Nnaji',
+        phoneDisplay: '0803 549 9545',
+        phone: '+2348035499545',
+        mapsSearch: 'https://www.google.com/maps/search/?api=1&query=Domus%20Sanctorum%20Guest%20House%20Enugu%20Nigeria',
+        source: 'Catholic Diocese of Enugu — Posting 2026',
+        note: 'Posting 2026 provides the administrator and phone number, but not room rates, menu, opening hours, booking rules, street address or verified GPS coordinates.'
       },
       choiceFlame: {
         name: 'The Choice Flame',
@@ -211,6 +220,13 @@
         question: 'How do I find a diocesan hospital or health centre?',
         triggers: ['hospital','health centre','maternity','clinic','care home'],
         answer: 'I can search the diocesan Health Directory by facility name or category. The portal lists hospitals, maternity/medical centres and care homes.'
+      },
+      {
+        id: 'domus_hospitality',
+        category: 'Hospitality',
+        question: 'How do I contact Domus Sanctorum Guest House & Eatery?',
+        triggers: ['domus','domus sanctorum','guest house','guesthouse','accommodation','lodging','room booking','book a room','eatery','restaurant','where can i stay','place to stay'],
+        answer: 'Domus Sanctorum Guest House & Eatery is treated as one diocesan hospitality facility. Posting 2026 lists Fr. Kenneth Nnaji as Administrator of Domus Guest House. Phone: 0803 549 9545. Please call directly for room availability, bookings, eatery service, current prices, menu or opening information because those details are not published in Posting 2026.'
       },
       {
         id: 'works',

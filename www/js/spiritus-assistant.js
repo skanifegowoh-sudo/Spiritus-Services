@@ -379,6 +379,11 @@
     if (faq.id === 'schools') actions.push(linkAction('🎓 Schools Directory', 'schools.html'));
     if (faq.id === 'health') actions.push(linkAction('🏥 Health Directory', 'health.html'));
     if (faq.id === 'works') actions.push(linkAction('🔧 Services', 'services.html'));
+    if (faq.id === 'domus_hospitality') {
+      actions.push(telAction('📞 Call Domus', K.contacts.domus.phone));
+      actions.push(linkAction('📍 Find on Google Maps', K.contacts.domus.mapsSearch));
+      actions.push(linkAction('🏨 Hospitality', 'services.html#hospitality'));
+    }
     if (['retreat','pilgrimage','prayer','counselling','vocational'].includes(faq.id)) actions.push(linkAction('🕊 Faith & Formation', 'faith-formation.html'));
     if (faq.id === 'choice_flame') actions.push(linkAction('📰 Choice Flame', 'choice-flame.html'));
     if (faq.id === 'notices') actions.push(linkAction('📢 Current Notices', 'announcements.html'));
@@ -414,6 +419,7 @@
         promptAction('🏥 Health', 'Health facilities'),
         promptAction('🙏 Faith & Formation', 'Faith and formation'),
         promptAction('🔧 Services', 'Spiritus Sanctus Works services'),
+        promptAction('🏨 Hospitality', 'Domus Sanctorum Guest House and Eatery'),
         promptAction('📰 News', 'Choice Flame and notices')
       ]
     };
