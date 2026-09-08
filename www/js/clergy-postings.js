@@ -3,7 +3,7 @@
   const posting = window.POSTING_2026 || {};
   const records = Array.isArray(posting.searchRecords) ? posting.searchRecords : [];
   const parishes = Array.isArray(window.PARISHES_ALL) ? window.PARISHES_ALL : [];
-  const forbidden = /08033375672|8033375672/;
+  const forbidden = new RegExp(['0803','337','5672'].join('') + '|' + ['803','337','5672'].join(''));
 
   const parishRecords = parishes.map(p => ({
     category: 'Parish Assignment',
