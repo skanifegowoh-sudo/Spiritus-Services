@@ -1,4 +1,4 @@
-const VERSION = 'spiritus-pwa-20260908-1';
+const VERSION = 'spiritus-pwa-20260908-2';
 const CORE_CACHE = `${VERSION}-core`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 
@@ -6,12 +6,12 @@ const CORE = [
   '/', '/index.html', '/directory.html', '/clergy-postings.html', '/services.html',
   '/health.html', '/schools.html', '/faith-formation.html', '/choice-flame.html',
   '/announcements.html', '/contact.html', '/about.html', '/offline.html',
-  '/manifest.json', '/css/styles-2026-v2.css',
+  '/manifest.json', '/css/styles-2026-v3.css',
   '/assets/logo.png', '/assets/app-icon-192.png', '/assets/app-icon-512.png',
   '/assets/app-icon-maskable-512.png',
   '/js/parishes-data.js', '/js/posting-2026-data.js', '/js/clergy-postings-v2.js',
   '/js/spiritus-knowledge.js', '/js/spiritus-assistant.js',
-  '/js/home-enhancements-v2.js', '/js/pwa-install.js'
+  '/js/home-enhancements-v2.js', '/js/pwa-install-v2.js'
 ];
 
 self.addEventListener('install', event => {
