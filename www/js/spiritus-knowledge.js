@@ -2,7 +2,7 @@
   'use strict';
 
   window.SPIRITUS_KNOWLEDGE = {
-    version: '3.0.0',
+    version: '4.0.0',
     updated: '2026-09-08',
 
     contacts: {
@@ -33,7 +33,9 @@
     diocese: {
       established: '12 November 1962',
       originalParishes: 17,
-      parishes: 248,
+      parishes: 219,
+      parishPostingEntries: 229,
+      parishAssignmentSource: 'Catholic Diocese of Enugu — Posting 2026',
       deaneries: 6,
       territory: '2,738 square kilometres',
       faithful: 'over 1.4 million Catholics',
@@ -45,6 +47,13 @@
       auxiliaryBishop: 'Most Rev. Ernest A. Obodo',
       emeritusBishop: 'Most Rev. Anthony O. Gbuji',
       chancellor: 'Very Rev. Fr. Wilfred Chidi Agubuchie'
+    },
+
+    dataSources: {
+      parishAssignments: 'Catholic Diocese of Enugu — Posting 2026',
+      parishCount: '219 declared in the six deanery headings of Posting 2026',
+      publicChanceryOverride: '+234 811 511 9318',
+      contactPolicy: 'Posting 2026 does not provide parish phone/email details. Older 2025 parish contacts are not assumed current.'
     },
 
     parishSchedule: {
@@ -84,10 +93,10 @@
       { type: 'pilgrimage', name: 'National Pilgrimage Centre of Mother of Perpetual Help', details: 'Director: Fr. Desmond Ebulue, C.Ss.R.', location: 'Ugwogo-Nike, Enugu' },
       { type: 'pilgrimage', name: 'Our Lady of Mount Calvary Cistercian Abbey', details: 'Abbot & Superior: Fr. Kevin Onyima', location: 'Awhum, P.O. Box 698, Enugu' },
 
-      { type: 'prayer', name: 'Upper Room Ministries', details: 'Rev. Fr. Anthony Nnaji / Igwe Obinna Kenneth', location: 'Emmanuel Town, Ugwuomu Nike, Enugu' },
-      { type: 'prayer', name: 'Catholic Adoration Ministry Enugu', details: 'Rev. Fr. Ejike Mbaka', location: 'Adoration Centre, Emene' },
+      { type: 'prayer', name: 'Upper Room Ministries', details: 'Rev. Fr. Anthony Nnaji / Rev. Fr. Ejike Paulinus Nnamdi — Posting 2026', location: 'Emmanuel Town, Ugwuomu Nike, Enugu' },
+      { type: 'prayer', name: 'Catholic Adoration Ministry Enugu', details: 'Rev. Fr. Mbaka Camilius Ejike — Posting 2026', location: 'Adoration Centre, Emene' },
 
-      { type: 'pastoral', name: 'Enugu Diocesan Catechetical / Pastoral Centre', details: 'Director: Rev. Fr. Kenneth Obodoagu', location: 'Ugwu Di Nso, Eke, P.O. Box 1513, Enugu' },
+      { type: 'pastoral', name: 'Enugu Diocesan Catechetical / Pastoral Centre', details: 'Director: Rev. Fr. Kenneth Obodoagu; Assistant Director: Rev. Fr. Ede Emmanuel C.; Bursar: Rev. Fr. Ifoegbuike Augustine — Posting 2026', location: 'Ugwu Di Nso, Eke, P.O. Box 1513, Enugu' },
       { type: 'pastoral', name: 'Enugu Diocesan Individual, Marriage, Family and Group Counselling Centre', details: 'Director: Fr. Anthony Okeke', location: '1–3 Ikwuato St., Uwani, Enugu' },
       { type: 'pastoral', name: 'Enugu Diocesan Therapeutic Centre', details: 'Rev. Fr. Benneth Ugwu and other Priests', location: '49 Ukwuru Street, Trans-Ekulu' },
 
@@ -187,7 +196,7 @@
         category: 'Diocese',
         question: 'When was the Diocese of Enugu established?',
         triggers: ['history of diocese','when established','when was diocese','1962','established'],
-        answer: 'The Catholic Diocese of Enugu was established on 12 November 1962, carved out of the Archdiocese of Onitsha. It began with 17 parishes and the portal now lists 248 parishes in six deaneries.'
+        answer: 'The Catholic Diocese of Enugu was established on 12 November 1962, carved out of the Archdiocese of Onitsha. It began with 17 parishes. The 2026 Posting headings declare 219 parishes across six deaneries; the posting tables also include additional outstation/work-up/pastoral listings.'
       },
       {
         id: 'schools',

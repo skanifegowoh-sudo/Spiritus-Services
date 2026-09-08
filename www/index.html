@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="The official portal of the Catholic Diocese of Enugu — 248 parishes across 6 deaneries, the Choice Flame newspaper, Spiritus Sanctus Works, diocesan health services, and the parish directory."/>
+  <meta name="description" content="The official portal of the Catholic Diocese of Enugu — 219 parishes across 6 deaneries, the Choice Flame newspaper, Spiritus Sanctus Works, diocesan health services, and the parish directory."/>
   <meta property="og:title" content="Catholic Diocese of Enugu — Spiritus Sanctus Portal"/>
   <meta property="og:description" content="A vibrant digital home for 1.4 million faithful across Enugu State. Find a parish, read the Choice Flame, request a service."/>
   <title>Catholic Diocese of Enugu — One Faith, Many Hands</title>
@@ -74,7 +74,7 @@
         <em>A Living Church.</em>
       </h1>
       <p class="hero__sub">
-        The Catholic Diocese of Enugu serves over <strong>1.4 million faithful</strong> across 248 parishes in six deaneries — from worship and healing to skilled service and the written word.
+        The Catholic Diocese of Enugu serves over <strong>1.4 million faithful</strong> across 219 parishes in six deaneries — from worship and healing to skilled service and the written word.
       </p>
       <div class="hero__actions">
         <a href="services.html" class="btn btn--primary btn--lg">Book a Service →</a>
@@ -86,7 +86,7 @@
           <div class="hero__stat-label">Deaneries</div>
         </div>
         <div class="hero__stat">
-          <div class="hero__stat-num">248</div>
+          <div class="hero__stat-num">219</div>
           <div class="hero__stat-label">Parishes</div>
         </div>
         <div class="hero__stat">
@@ -159,7 +159,7 @@
       <a href="directory.html" class="qa-card qa-card--cobalt">
         <div class="qa-card__icon">⛪</div>
         <div class="qa-card__title">Find a Parish</div>
-        <div class="qa-card__desc">Locate any of 248 parishes across 6 deaneries — Mass times, parish priests, and contact details.</div>
+        <div class="qa-card__desc">Locate any of 219 parishes across 6 deaneries — Mass times, parish priests, and contact details.</div>
         <span class="qa-card__cta">Browse directory →</span>
         <div class="qa-card__bg">01</div>
       </a>
@@ -270,7 +270,7 @@
   <div class="deaneries__pattern"></div>
   <div class="container">
     <div class="deaneries__head">
-      <span class="eyebrow">Six Deaneries · 248 Parishes</span>
+      <span class="eyebrow">Six Deaneries · 219 parishes</span>
       <h2 class="mt-8">Across Enugu State, in every corner.</h2>
       <p class="lead">The Diocese is divided into six deaneries — each a network of parishes led by a Dean and serving thousands of Catholic faithful in its locality.</p>
     </div>
@@ -511,8 +511,13 @@
       <p class="lead mt-16" style="margin:16px auto 0">The latest videos and headlines about Pope Leo XIV and the Holy See — delivered live, direct from Vatican News.</p>
     </div>
     <div style="max-width:900px;margin:0 auto;min-height:400px;height:auto">
-      <vaticannews-widget lang="en" fontSize="16" carouselVideoAuto="true" carouselVideoTime="medium"></vaticannews-widget>
-      <script src="https://www.vaticannews.va/widget.js"></script>
+      <iframe
+        class="vatican-widget-frame"
+        src="vatican-widget.html"
+        title="Live Vatican News"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        scrolling="no"></iframe>
     </div>
   </div>
 </section>
@@ -547,7 +552,7 @@
           <div class="footer__brand-sub">Spiritus Sanctus Portal</div>
         </div>
       </div>
-      <p class="footer__desc">A vibrant digital home for the Catholic faithful of Enugu State. Serving 1.4 million Catholics across 248 parishes in six deaneries since 1962.</p>
+      <p class="footer__desc">A vibrant digital home for the Catholic faithful of Enugu State. Serving 1.4 million Catholics across 219 parishes in six deaneries since 1962.</p>
       <div class="footer__social" style="margin-top:18px">
         <a href="#" aria-label="Facebook">f</a>
         <a href="#" aria-label="Twitter">𝕏</a>
@@ -593,7 +598,8 @@
 
 <script src="js/choice-flame-data.js"></script>
 <script src="js/home-news.js"></script>
-    <script src="js/spiritus-knowledge.js" defer></script>
+        <script src="js/spiritus-knowledge.js" defer></script>
+  <script src="js/posting-2026-data.js" defer></script>
   <script src="js/spiritus-assistant.js" defer></script>
 </body>
 </html>

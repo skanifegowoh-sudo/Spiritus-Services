@@ -1,11 +1,12 @@
 (() => {
   'use strict';
 
-  if (window.__SPIRITUS_ASSISTANT_V3__) return;
-  window.__SPIRITUS_ASSISTANT_V3__ = true;
+  if (window.__SPIRITUS_ASSISTANT_V4__) return;
+  window.__SPIRITUS_ASSISTANT_V4__ = true;
 
   const DATASETS = [
     ['SPIRITUS_KNOWLEDGE', 'js/spiritus-knowledge.js'],
+    ['POSTING_2026', 'js/posting-2026-data.js'],
     ['PARISHES_ALL', 'js/parishes-data.js'],
     ['SCHOOLS', 'js/schools-data.js'],
     ['HEALTH_CENTRES', 'js/health-data.js']
@@ -41,6 +42,11 @@
   const genericHealthWords = new Set([
     'find','show','hospital','hospitals','health','centre','center','centres','centers','clinic','clinics',
     'maternity','medical','care','home','homes','where','what','which','the','a','an','of','to','in','at','for','me','my','i','please'
+  ]);
+
+  const genericPostingWords = new Set([
+    'who','what','which','where','is','are','the','a','an','of','to','in','at','for','me','my','i','please',
+    'current','2026','posting','catholic','diocese','enugu','fr','rev','reverend','father','most','very'
   ]);
 
   function loadScript(globalName, src) {
@@ -138,9 +144,11 @@
 
   function parishSummary(parish) {
     const bits = [`${parish.name} is in ${parish.deanery}.`];
-    if (parish.priest) bits.push(`Parish priest: ${parish.priest}.`);
+    if (parish.priest) bits.push(`2026 parish priest / administrator: ${parish.priest}.`);
+    if (parish.vicarAssignments) bits.push(`2026 parish vicars / assigned clergy: ${parish.vicarAssignments}.`);
     if (parish.priestPhone) bits.push(`Listed parish contact: ${parish.priestPhone}.`);
     if (parish.priestEmail) bits.push(`Email: ${parish.priestEmail}.`);
+    if (!parish.priestPhone && !parish.priestEmail) bits.push('Posting 2026 does not give a direct parish phone or email for this entry.');
     return bits.join(' ');
   }
 
@@ -173,7 +181,7 @@
     return (window.PARISHES_ALL || [])
       .map(p => {
         const locality = String(p.name || '').replace(/\([^)]*\)/g, ' ');
-        const hay = [p.name, locality, p.deanery, p.priest, p.priestEmail, p.priestPhone,
+        const hay = [p.name, locality, p.deanery, p.priest, p.priestEmail, p.priestPhone, p.vicarAssignments,
           ...(p.vicars || []).map(v => `${v.name} ${v.phone || ''} ${v.email || ''}`)
         ].join(' ');
         let score = exactishScore(terms, hay, raw);
@@ -211,6 +219,37 @@
       }))
       .filter(x => x.score >= 5)
       .sort((a, b) => b.score - a.score);
+  }
+
+
+  function findPostingCandidates(raw) {
+    const terms = significantWords(raw, genericPostingWords);
+    if (!terms.length) return [];
+    const records = window.POSTING_2026?.searchRecords || [];
+    return records
+      .map(r => ({
+        item: r,
+        score: exactishScore(terms, [r.category, r.label, r.person, r.details].join(' '), raw)
+      }))
+      .filter(x => x.score >= 8)
+      .sort((a, b) => b.score - a.score);
+  }
+
+  function postingChoiceResponse(candidates) {
+    if (!candidates.length) return null;
+    if (uniqueEnough(candidates)) {
+      const r = candidates[0].item;
+      return {
+        text: `${r.label}: ${r.person}${r.details && normalise(r.details) !== normalise(r.label) ? `. ${r.details}.` : '.'} Source: Posting 2026.`,
+        actions: [promptAction('☰ Help Menu', 'Help')]
+      };
+    }
+    return {
+      text: 'I found several 2026 posting records that may match. Please choose one:',
+      actions: candidates.slice(0, 5).map(x =>
+        promptAction(`📋 ${x.item.label} — ${x.item.person}`, `2026 posting: ${x.item.label} ${x.item.person}`)
+      )
+    };
   }
 
   function uniqueEnough(candidates) {
@@ -445,16 +484,22 @@
     if (/priest|father|pastor/.test(q)) {
       return { text: p.priest ? `The listed parish priest of ${p.name} is ${p.priest}.` : `No parish-priest name is currently listed for ${p.name}.`, actions: parishActions(p) };
     }
+    if (/vicar|assistant|curate|assigned clergy|other priest|other priests/.test(q)) {
+      return {
+        text: p.vicarAssignments ? `The 2026 Posting lists these parish vicars / assigned clergy for ${p.name}: ${p.vicarAssignments}.` : `The 2026 Posting does not list a parish vicar or additional assigned clergy for ${p.name}.`,
+        actions: parishActions(p)
+      };
+    }
     if (/phone|number|call|contact/.test(q)) {
       const phone = firstPhone(p.priestPhone);
       return {
-        text: p.priestPhone ? `The listed parish contact for ${p.name} is ${p.priestPhone}.` : `No direct parish phone is listed for ${p.name}. Please use the Chancery for referral.`,
+        text: p.priestPhone ? `The listed parish contact for ${p.name} is ${p.priestPhone}.` : `Posting 2026 does not provide a direct parish phone for ${p.name}. Please contact the parish locally or use the Chancery for referral.`,
         actions: phone ? [telAction('📞 Call Parish', phone), ...parishActions(p).filter(a => !a.label.includes('Call Parish'))] : [telAction('🏛 Call Chancery', K.contacts.chancery.phone), linkAction('⛪ Directory', 'directory.html')]
       };
     }
     if (/email/.test(q)) {
       return {
-        text: p.priestEmail ? `The listed parish email for ${p.name} is ${p.priestEmail}.` : `No parish email is currently listed for ${p.name}.`,
+        text: p.priestEmail ? `The listed parish email for ${p.name} is ${p.priestEmail}.` : `Posting 2026 does not provide a parish email for ${p.name}.`,
         actions: p.priestEmail ? [linkAction('✉️ Email Parish', `mailto:${p.priestEmail}`)] : [telAction('🏛 Call Chancery', K.contacts.chancery.phone)]
       };
     }
@@ -546,7 +591,8 @@
           if (/direction|directions|map|maps|route|locate|location/.test(q)) {
             return { text: `Here are Google Maps directions to ${p.name}.`, actions: parishActions(p) };
           }
-          if (/priest|father/.test(q)) return { text: p.priest ? `The listed parish priest of ${p.name} is ${p.priest}.` : `No parish-priest name is currently listed for ${p.name}.`, actions: parishActions(p) };
+          if (/priest|father/.test(q)) return { text: p.priest ? `The 2026 parish priest / administrator of ${p.name} is ${p.priest}.` : `No parish-priest name is shown for ${p.name} in Posting 2026.`, actions: parishActions(p) };
+          if (/vicar|assistant|curate|assigned clergy/.test(q)) return { text: p.vicarAssignments ? `The 2026 Posting lists these parish vicars / assigned clergy for ${p.name}: ${p.vicarAssignments}.` : `No parish vicar or additional assigned clergy is listed for ${p.name} in Posting 2026.`, actions: parishActions(p) };
         }
         return result;
       }
@@ -575,12 +621,18 @@
     if (/counsell|counsel|therapeutic|pastoral centre|pastoral center/.test(q)) return faithCentreResponse('pastoral');
     if (/vocational|skill centre|skill center|technical training/.test(q)) return faithCentreResponse('vocational');
 
+    // Role/person lookups from the diocesan Posting 2026.
+    if (/\b(who|dean|vicar|chancellor|secretary|administrator|director|chaplain|rector|tribunal|exorc|bursar|auditor|procurator|communications|vocations|assignment|assigned|posting|cwo|cmo|cyon|nfcs|choice flame)\b/.test(q)) {
+      const postingMatches = findPostingCandidates(original);
+      if (postingMatches.length) return postingChoiceResponse(postingMatches);
+    }
+
     // FAQ/facts.
     const faq = findFAQ(original);
     if (faq) return faqResponse(faq);
 
     // Simple diocesan fact questions.
-    if (/how many parishes/.test(q)) return { text: `The portal lists ${K.diocese.parishes} parishes across ${K.diocese.deaneries} deaneries.`, actions: [linkAction('⛪ Parish Directory', 'directory.html')] };
+    if (/how many parishes/.test(q)) return { text: `The 2026 Posting headings declare ${K.diocese.parishes} parishes across ${K.diocese.deaneries} deaneries. The posting tables also contain additional outstation/work-up/pastoral listings, which are searchable in the directory.`, actions: [linkAction('⛪ Parish Directory', 'directory.html')] };
     if (/how many priests/.test(q)) return { text: `The portal lists ${K.diocese.diocesanPriests} diocesan priests.`, actions: [linkAction('✝ About Diocese', 'about.html')] };
     if (/seminarian/.test(q)) return { text: `The portal lists ${K.diocese.majorSeminarians} major seminarians and ${K.diocese.minorSeminarians} minor seminarians.`, actions: [linkAction('✝ About Diocese', 'about.html')] };
 

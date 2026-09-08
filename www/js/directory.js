@@ -1,5 +1,5 @@
-// Render the parish directory: alphabetical by parish name, click to reveal priest/vicar contacts,
-// regular Mass schedule, chapel information and Google Maps directions.
+// Render the 2026 parish posting: parish priest / assigned clergy, regular Mass schedule,
+// chapel information and Google Maps directions. Source: Catholic Diocese of Enugu — Posting 2026.
 (function() {
   const DEANERY_COLORS = {
     'Agbani Deanery': 'cobalt',
@@ -64,7 +64,8 @@
       <a class="parish-action parish-action--map" href="${escapeHtml(mapUrl(p))}" target="_blank" rel="noopener noreferrer">📍 Google Maps Directions</a>`;
     if (phone) html += `<a class="parish-action" href="tel:${escapeHtml(phone)}">📞 Call Parish Contact</a>`;
     if (email) html += `<a class="parish-action" href="mailto:${escapeHtml(email)}">✉️ Email Parish Contact</a>`;
-    html += `</div><div class="parish-map-note">Google Maps uses the parish name and locality from the diocesan directory. If a pin differs from the actual parish gate, please confirm with the parish before travelling.</div>`;
+    if (!phone && !email) html += `<a class="parish-action" href="contact.html">🏛 Chancery Referral</a>`;
+    html += `</div><div class="parish-map-note">Google Maps uses the parish name and locality from the 2026 Posting. The 2026 Posting does not provide parish phone/email details, so older 2025 contact numbers are not carried forward. Please contact the parish locally or the Chancery for referral.</div>`;
     return html;
   }
 
@@ -72,22 +73,21 @@
     let rows = '';
     if (p.priest) {
       rows += `<div class="parish-detail__row">
-        <span class="parish-detail__label">✝ Parish Priest</span>
+        <span class="parish-detail__label">✝ Parish Priest / Administrator</span>
         <span class="parish-detail__name">${escapeHtml(p.priest)}</span>
-        ${p.priestPhone ? `<span class="parish-detail__contact">📞 ${escapeHtml(p.priestPhone)}</span>` : ''}
-        ${p.priestEmail ? `<span class="parish-detail__contact">✉️ ${escapeHtml(p.priestEmail)}</span>` : ''}
       </div>`;
     }
-    (p.vicars || []).forEach(v => {
-      if (!v.name) return;
+    const assigned = String(p.vicarAssignments || '').trim();
+    if (assigned) {
       rows += `<div class="parish-detail__row">
-        <span class="parish-detail__label">⛪ Parish Vicar</span>
-        <span class="parish-detail__name">${escapeHtml(v.name)}</span>
-        ${v.phone ? `<span class="parish-detail__contact">📞 ${escapeHtml(v.phone)}</span>` : ''}
-        ${v.email ? `<span class="parish-detail__contact">✉️ ${escapeHtml(v.email)}</span>` : ''}
+        <span class="parish-detail__label">⛪ Parish Vicars / Assigned Clergy</span>
+        <span class="parish-detail__name">${escapeHtml(assigned)}</span>
       </div>`;
-    });
-    if (!rows) rows = `<div class="parish-detail__row"><span class="parish-detail__label">No direct parish contact details are on file yet.</span></div>`;
+    }
+    if (!rows) rows = `<div class="parish-detail__row"><span class="parish-detail__label">No clergy assignment is shown for this entry in Posting 2026.</span></div>`;
+    if (p.unitType && p.unitType !== 'parish') {
+      rows += `<div class="parish-detail__row"><span class="parish-detail__label">📌 Listing type</span><span class="parish-detail__name">${escapeHtml(p.unitType)}</span></div>`;
+    }
     return rows + renderSchedule() + renderActions(p);
   }
 
@@ -117,7 +117,7 @@
 
   let html = '<div class="parish-grid" id="parishGrid">';
   parishes.forEach((p, i) => {
-    const vicarNames = (p.vicars || []).map(v => v.name).join(' ');
+    const vicarNames = p.vicarAssignments || (p.vicars || []).map(v => v.name).join(' ');
     const searchable = (p.name + ' ' + p.deanery + ' ' + p.priest + ' ' + vicarNames).toLowerCase();
     const color = DEANERY_COLORS[p.deanery] || 'cobalt';
     html += `<div class="parish-item parish-item--clickable" data-deanery="${escapeHtml(p.deanery)}" data-name="${escapeHtml(searchable)}" data-idx="${i}">
@@ -125,7 +125,7 @@
       <div class="parish-item__name">${escapeHtml(p.name)}</div>
       <div class="parish-item__meta">
         <span class="parish-item__tag parish-item__tag--${color}">${escapeHtml(p.deanery.replace(' Deanery',''))}</span>
-        <span class="parish-item__chevron">▾ priest · Mass times · directions</span>
+        <span class="parish-item__chevron">▾ 2026 clergy · Mass times · directions</span>
       </div>
       <div class="parish-item__detail">${renderDetail(p)}</div>
     </div>`;

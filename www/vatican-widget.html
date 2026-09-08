@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' https://www.vaticannews.va; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https:; frame-src https:;"/>
+  <title>Vatican News</title>
+  <style>
+    html, body { margin:0; padding:0; width:100%; max-width:100%; min-width:0; overflow-x:hidden; background:#F7EFD9; box-sizing:border-box; }
+    *, *::before, *::after { box-sizing:border-box; max-width:100%; }
+    vaticannews-widget { display:block; width:100%!important; max-width:100%!important; min-width:0!important; margin:0 auto; overflow:hidden; }
+  </style>
+</head>
+<body>
+  <vaticannews-widget lang="en" fontSize="14" carouselVideoAuto="true" carouselVideoTime="medium"></vaticannews-widget>
+  <script src="https://www.vaticannews.va/widget.js"></script>
+</body>
+</html>
+
