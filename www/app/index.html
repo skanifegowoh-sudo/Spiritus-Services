@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#7A2331"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+  <meta name="apple-mobile-web-app-title" content="Spiritus"/>
+  <title>Spiritus Sanctus App</title>
+  <link rel="manifest" href="/app/manifest.json?v=20260908f"/>
+  <link rel="apple-touch-icon" href="/assets/app-icon-192.png"/>
+  <link rel="stylesheet" href="/app/app.css?v=20260908f"/>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="app-status" id="appStatus" aria-live="polite"></div>
+
+    <iframe
+      id="spiritusFrame"
+      class="app-frame"
+      title="Spiritus Sanctus"
+      src="/?embedded=app"
+      allow="geolocation; microphone"
+      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+    <nav class="app-bottom-nav" aria-label="Spiritus app navigation">
+      <button type="button" data-page="home" class="is-active"><span>⌂</span><small>Home</small></button>
+      <button type="button" data-page="directory"><span>⛪</span><small>Parishes</small></button>
+      <button type="button" data-page="postings"><span>📘</span><small>2026 Search</small></button>
+      <button type="button" data-action="spiritus"><span>💬</span><small>Spiritus</small></button>
+      <button type="button" data-action="more"><span>☰</span><small>More</small></button>
+    </nav>
+
+    <section class="install-sheet" id="installSheet" hidden>
+      <div class="install-sheet__card">
+        <img src="/assets/app-icon-192.png" alt="Spiritus Sanctus app icon"/>
+        <div>
+          <span>Spiritus Sanctus App</span>
+          <h1>Install the Diocese on your phone.</h1>
+          <p>This app is separate from the normal website. Website links will stay in your browser; the installed app launches from its own icon.</p>
+        </div>
+        <button type="button" id="installNow">Install Spiritus App</button>
+        <button type="button" id="continueWeb" class="secondary">Continue without installing</button>
+      </div>
+    </section>
+  </div>
+  <script src="/app/app.js?v=20260908f"></script>
+</body>
+</html>
