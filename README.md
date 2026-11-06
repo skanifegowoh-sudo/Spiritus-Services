@@ -49,3 +49,18 @@ to push the changes into the native Android/iOS projects before rebuilding.
 - If you'd rather have something installable straight from the browser with
   no app-store process at all, ask about turning this into a PWA instead —
   much faster path, works on both Android and iPhone home screens.
+
+
+## Project context and portfolio
+
+**Project:** Enugu Diocese Portal mobile packaging, using Capacitor to build Android and iOS applications around a web interface.
+
+**Developer:** Paul Nativity, Sanctus Technology.
+
+This repository represents a mobile-wrapper snapshot. The [live Enugu Diocese Portal](https://sanctusportal.pages.dev/) may contain newer content than the snapshot in this repository.
+
+- [Live diocesan portal](https://sanctusportal.pages.dev/)
+- [Sanctus Technology website](https://sanctustechnology.com.ng)
+- [Developer GitHub profile](https://github.com/skanifegowoh-sudo)
+
+**Security:** Do not commit release signing keys, environment files or credentials.
